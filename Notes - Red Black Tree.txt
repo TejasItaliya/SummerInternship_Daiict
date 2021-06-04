@@ -1,0 +1,72 @@
+#notes of Red Black Tree created reffering jenny's lecture ,book work in red book page no -> 5 
+
+---------------------------------------------------------------------------------
+INSERTION 
+---------------------------------------------------------------------------------
+cases 
+1) if tree is empty create new root node with color black.
+2) if tree not empty create new node as leaf node with color red.
+3) if parent of new node is black exit.
+4) if parent of new node is red then check the color of parent's sibling of new node,
+    a) If color is black or null then do the suitable rotation & recolor.
+    b) If color is red then recolor & also check if parent's parent of new node is not root node then recolor it & recheck.
+---------------------------------------------------------------------------------                                
+
+---------------------------------------------------------------------------------
+DELETION 
+---------------------------------------------------------------------------------
+if black node is being deleted process
+    step 1
+        1) Perform BST deletion.
+
+    step 2
+        case 1) If node to be deleted is red just deleted  it. 
+        case 2) If root node is DB just remove that 
+        case 3) If DB sibing is black and both children are black
+                ->remove Db 
+                ->Add black to its parent(p) 
+                    3.1)if parent red it becomes black
+                    3.2)if parent black it becomes DB (double black)
+                -> make sibling Red 
+                ->------------------------------------------------------------
+        case 4) If DB sibing is red
+                -> swap color of parent and of sibling
+                -> rotate parent in DB direction
+                -> reapply cases
+        case 5) DB sibing is black ,sibling child who is far from DB is black but near child to DB is red      [ratation in this will be in opposite direction of color changed node]
+                -> swap color of DB's sibling and slibling's child who is newr to DB
+                -> rotate sibling in opposite direction to DB
+                -> apply case 6
+
+        case 6) DB sbling is black ,far child is red
+                -> swap color of parent and sibling
+                -> rotate parent in DB direction
+                -> remove DB
+                ->change color of red child to black 
+---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+other thing to keep in mind
+---------------------------------------------------------------------------------
+At most 2 rotation for insertion
+        3 rotation for deletion
+        or somtimes changing color is all needed.
+time complexcity = O(log 2n)
+
+black --> 0 
+red --> 1
+
+we can say avl tree  - are subset of red black
+but if tree is redback - is not mandatory it will be avl
+
+r ->r no 
+b -> b posible
+
+Height Balance
+avl -> strictly 
+red black -> roughly
+
+not single red node in it - fine it is.
+
+[the distance of farthest node is = 2(twice) the distance of the nearest one] not more than that
+---------------------------------------------------------------------------------
